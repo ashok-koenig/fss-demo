@@ -40,6 +40,13 @@ public class ProductController {
         return ResponseEntity.ok(productService.updateProduct(product));
     }
 
+    @PatchMapping("/{id}")
+    public ResponseEntity<Product> updateProductPrice(@PathVariable Long id, @RequestParam Double price){
+       Product product = productService.getProductById(id).orElseThrow(()-> new ProductNotFoundException(id));
+        product.setPrice(price);
+        return ResponseEntity.ok(productService.updateProduct(product));
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteProductById(@PathVariable Long id){
         productService.getProductById(id).orElseThrow(()-> new ProductNotFoundException(id));
