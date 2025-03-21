@@ -1,0 +1,99 @@
+{
+  "components": [
+    {
+      "text": "Leave Application Form",
+      "type": "text",
+      "layout": {
+        "row": "Row_1rfcz8y",
+        "columns": null
+      },
+      "id": "Field_007jc3l"
+    },
+    {
+      "label": "Employee Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0wh0m2m",
+        "columns": null
+      },
+      "id": "Field_1tnehat",
+      "key": "employee_name",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Select Department",
+      "values": [
+        {
+          "label": "Tech Team",
+          "value": "Tech"
+        },
+        {
+          "label": "HR",
+          "value": "HR"
+        },
+        {
+          "label": "Admin",
+          "value": "Admin"
+        }
+      ],
+      "type": "select",
+      "layout": {
+        "row": "Row_0xioip8",
+        "columns": null
+      },
+      "id": "Field_14e51ox",
+      "key": "department",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Select Leave Type",
+      "values": [
+        {
+          "label": "Casual Leave",
+          "value": "Casual"
+        },
+        {
+          "label": "Sick Leave",
+          "value": "Sick"
+        }
+      ],
+      "type": "select",
+      "layout": {
+        "row": "Row_0ut1acl",
+        "columns": null
+      },
+      "id": "Field_135zssc",
+      "key": "leave_type",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Number of Days",
+      "type": "number",
+      "layout": {
+        "row": "Row_1l9os2m",
+        "columns": null
+      },
+      "id": "Field_0f6nxxr",
+      "key": "number_of_days",
+      "validate": {
+        "required": true,
+        "min": 1
+      }
+    }
+  ],
+  "type": "default",
+  "id": "Leave_Application_Form",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.6.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.33.1"
+  },
+  "schemaVersion": 18
+}
