@@ -1,0 +1,77 @@
+{
+  "components": [
+    {
+      "text": "Multi Instance Review Process",
+      "type": "text",
+      "layout": {
+        "row": "Row_003ujsg",
+        "columns": null
+      },
+      "id": "Field_0eu9u0i"
+    },
+    {
+      "label": "Reviewer",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1u3g1hd",
+        "columns": null
+      },
+      "id": "Field_02818do",
+      "key": "reviewer",
+      "readonly": true
+    },
+    {
+      "label": "Applicant Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_01c7sz9",
+        "columns": null
+      },
+      "id": "Field_192lb0g",
+      "key": "applicant_name",
+      "readonly": true
+    },
+    {
+      "label": "Loan Amount",
+      "type": "number",
+      "layout": {
+        "row": "Row_1hf4ne2",
+        "columns": null
+      },
+      "id": "Field_0yz019x",
+      "key": "loan_amount",
+      "readonly": true
+    },
+    {
+      "label": "Credit Score",
+      "type": "number",
+      "layout": {
+        "row": "Row_0d69w32",
+        "columns": null
+      },
+      "id": "Field_0ngbbca",
+      "key": "credit_score",
+      "readonly": true
+    },
+    {
+      "label": "Approve Loan Application",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_1iu60pu",
+        "columns": null
+      },
+      "id": "Field_1dyeid5",
+      "key": "approved",
+      "description": "Reviewed Loan application and required document"
+    }
+  ],
+  "type": "default",
+  "id": "multi_instance_review_from",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.6.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.33.1"
+  },
+  "schemaVersion": 18
+}
