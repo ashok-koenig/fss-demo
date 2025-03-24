@@ -48,6 +48,26 @@
       <bpmn:outgoing>Flow_0bnzpn9</bpmn:outgoing>
     </bpmn:scriptTask>
     <bpmn:sequenceFlow id="Flow_0bnzpn9" sourceRef="Activity_1nf7tkw" targetRef="Gateway_0vfney4" />
+    <bpmn:startEvent id="Event_18ppm6l">
+      <bpmn:outgoing>Flow_19o8lsz</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_0pnskcj">
+        <bpmn:timeCycle xsi:type="bpmn:tFormalExpression">R3/PT30S</bpmn:timeCycle>
+      </bpmn:timerEventDefinition>
+    </bpmn:startEvent>
+    <bpmn:task id="Activity_14adq5e" name="Updated the Credit Score for all customers">
+      <bpmn:incoming>Flow_19o8lsz</bpmn:incoming>
+      <bpmn:outgoing>Flow_0py202c</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_19o8lsz" sourceRef="Event_18ppm6l" targetRef="Activity_14adq5e" />
+    <bpmn:task id="Activity_0tz4ztk" name="Generate reports">
+      <bpmn:incoming>Flow_0py202c</bpmn:incoming>
+      <bpmn:outgoing>Flow_1m6rd62</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0py202c" sourceRef="Activity_14adq5e" targetRef="Activity_0tz4ztk" />
+    <bpmn:endEvent id="Event_0gjnsv7">
+      <bpmn:incoming>Flow_1m6rd62</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1m6rd62" sourceRef="Activity_0tz4ztk" targetRef="Event_0gjnsv7" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Timer-Based-Loan-Approval">
@@ -79,6 +99,20 @@
         <bpmndi:BPMNLabel>
           <dc:Bounds x="735" y="245" width="71" height="14" />
         </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_18ppm6l_di" bpmnElement="Event_18ppm6l">
+        <dc:Bounds x="252" y="522" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_14adq5e_di" bpmnElement="Activity_14adq5e">
+        <dc:Bounds x="340" y="500" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0tz4ztk_di" bpmnElement="Activity_0tz4ztk">
+        <dc:Bounds x="500" y="500" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0gjnsv7_di" bpmnElement="Event_0gjnsv7">
+        <dc:Bounds x="662" y="522" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_171bsfw_di" bpmnElement="Event_171bsfw">
         <dc:Bounds x="352" y="242" width="36" height="36" />
@@ -114,6 +148,18 @@
         <di:waypoint x="420" y="400" />
         <di:waypoint x="590" y="400" />
         <di:waypoint x="590" y="245" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19o8lsz_di" bpmnElement="Flow_19o8lsz">
+        <di:waypoint x="288" y="540" />
+        <di:waypoint x="340" y="540" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0py202c_di" bpmnElement="Flow_0py202c">
+        <di:waypoint x="440" y="540" />
+        <di:waypoint x="500" y="540" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1m6rd62_di" bpmnElement="Flow_1m6rd62">
+        <di:waypoint x="600" y="540" />
+        <di:waypoint x="662" y="540" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
