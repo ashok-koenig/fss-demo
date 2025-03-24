@@ -1,0 +1,65 @@
+{
+  "components": [
+    {
+      "text": "# Review application from API",
+      "type": "text",
+      "layout": {
+        "row": "Row_0xredla",
+        "columns": null
+      },
+      "id": "Field_0j96scw"
+    },
+    {
+      "label": "First Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_06nqhfp",
+        "columns": null
+      },
+      "id": "Field_0ufmlc9",
+      "key": "firstName",
+      "readonly": true
+    },
+    {
+      "label": "Last Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_173rgwf",
+        "columns": null
+      },
+      "id": "Field_17vmolp",
+      "key": "lastName",
+      "readonly": true
+    },
+    {
+      "label": "Age",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0edallw",
+        "columns": null
+      },
+      "id": "Field_0hf9s6f",
+      "key": "age",
+      "readonly": true
+    },
+    {
+      "label": "Loan Approved",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_07xqrkl",
+        "columns": null
+      },
+      "id": "Field_08h1vz2",
+      "key": "approved"
+    }
+  ],
+  "type": "default",
+  "id": "manual_review_form",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.6.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.33.1"
+  },
+  "schemaVersion": 18
+}
