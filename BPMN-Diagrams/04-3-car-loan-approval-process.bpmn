@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0nmb6tk" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.33.1" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.6.0">
+  <bpmn:process id="car_loan_process" isExecutable="true">
+    <bpmn:startEvent id="Event_15lgjfr" name="Car Loan">
+      <bpmn:outgoing>Flow_1ng7kgr</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:exclusiveGateway id="Gateway_1wk40gg" name="Approve Car Loan?">
+      <bpmn:incoming>Flow_1ng7kgr</bpmn:incoming>
+      <bpmn:outgoing>Flow_0a4gkv2</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1mu705c</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="Event_1z0p6qp" name="Car Loan Approved">
+      <bpmn:incoming>Flow_0a4gkv2</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="Event_0pv73p4" name="Car Loan Rejected">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="Car_loan_rejected" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1mu705c</bpmn:incoming>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_17101x4" />
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1ng7kgr" sourceRef="Event_15lgjfr" targetRef="Gateway_1wk40gg" />
+    <bpmn:sequenceFlow id="Flow_0a4gkv2" name="Approved" sourceRef="Gateway_1wk40gg" targetRef="Event_1z0p6qp">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=(credit_score&gt;=750 and loan_amount&lt;=5000000)</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1mu705c" name="Rejected" sourceRef="Gateway_1wk40gg" targetRef="Event_0pv73p4">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=(credit_score&lt;750 or loan_amount&gt;500000)</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="car_loan_process">
+      <bpmndi:BPMNShape id="Event_15lgjfr_di" bpmnElement="Event_15lgjfr">
+        <dc:Bounds x="162" y="142" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="157" y="185" width="46" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1wk40gg_di" bpmnElement="Gateway_1wk40gg" isMarkerVisible="true">
+        <dc:Bounds x="295" y="135" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="369" y="150" width="63" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1z0p6qp_di" bpmnElement="Event_1z0p6qp">
+        <dc:Bounds x="512" y="82" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="507" y="125" width="47" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0pv73p4_di" bpmnElement="Event_0pv73p4">
+        <dc:Bounds x="512" y="202" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="507" y="245" width="46" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1ng7kgr_di" bpmnElement="Flow_1ng7kgr">
+        <di:waypoint x="198" y="160" />
+        <di:waypoint x="295" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0a4gkv2_di" bpmnElement="Flow_0a4gkv2">
+        <di:waypoint x="320" y="135" />
+        <di:waypoint x="320" y="100" />
+        <di:waypoint x="512" y="100" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="364" y="83" width="47" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1mu705c_di" bpmnElement="Flow_1mu705c">
+        <di:waypoint x="320" y="185" />
+        <di:waypoint x="320" y="220" />
+        <di:waypoint x="512" y="220" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="388" y="200" width="44" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
