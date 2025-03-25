@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: demodb2-mysql
+  labels:
+    app: demodb2-mysql
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: demodb2-mysql
+  template:
+    metadata:
+      labels:
+        app: demodb2-mysql
+    spec:
+      containers:
+      - name: demodb2-mysql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: root
+        image: demodb2-mysql:latest
+        ports:
+        - containerPort: 3306
